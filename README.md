@@ -1,2 +1,2 @@
-# paimon
+# Paimon
 Imparare Discord JS
