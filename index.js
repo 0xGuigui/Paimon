@@ -1,7 +1,16 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require('./config.json');
+const fs = require('fs');
 require('dotenv').config();
+
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+client.commands = new Discord.Collection();
+
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`);
+    client.commands.set(command.name, command);
+}
 
 client.login(process.env.TOKEN);
 
@@ -11,97 +20,26 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    const args = message.content.slice(`${config.prefix.length}`).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
-    const args_space = args.join(" ");
-    if (message.author.bot) return;
+    if (message.content.startsWith(config.prefix)) {
+        const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+        const command = args.shift().toLowerCase();
+        const args_space = args.join(" ");
+        if (message.author.bot) return;
+        console.log(`The message is: ${message.content}`);
+        console.log(`Sent by: ${message.author.username}`);
+        console.log(`In the channel: ${message.channel.name}`);
+        console.log(`On the server: ${message.guild.name}`);
+        console.log("\n---------------------------------\n");
 
-    // Suivi
-    console.log(`The message is: ${message.content}`);
-    console.log(`Sent by: ${message.author.username}`);
-    console.log(`In the channel: ${message.channel.name}`);
-    console.log(`On the server: ${message.guild.name}`);
-    console.log("\n---------------------------------\n");
-
-    if (message.content.startsWith(`${config.prefix}`)) {
-        //ping
-        if (command === "ping") {
-            const time = message.createdTimestamp - Date.now();
-            message.channel.send(`🏓 Pong (${time})ms`);
-        }
-
-        //Serveur infos
-        else if (command === "si") {
-            message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
-        }
-
-        //suggestion
-        else if (command == "suggestion") {
-            if (!args.length) {
-                return message.channel.send(`Eeeeh, you forgot to put the request ${message.author}!`);
-            }
-            message.channel.send(`Are you sure you want to send this suggestion ${message.author}?`).then((question) => {
-                question.react("✅");
-                question.react("❌");
-                const filter = (reaction, user) => {
-                    return ["✅", "❌"].includes(reaction.emoji.name) && !user.bot && message.author;
-                }
-                const collector = question.createReactionCollector(filter, {
-                    max: 1,
-                    time: 10000
-                });
-                collector.on('end', (collected, reason) => {
-                    if (reason === 'time') {
-                        message.channel.send(`Oh no ${message.author}, the reaction time is over...`);
-                    } else {
-                        let userReaction = collected.array()[0];
-                        let emoji = userReaction._emoji.name;
-                        if (emoji === "✅") {
-                            message.channel.send(`Your suggestion has been sent, thank you ${message.author}!`);
-                            client.users.cache.get('650432748275892253').send(`A new request was made by **${message.author.username}#${message.author.discriminator}**: ${args_space}`);
-                        } else if (emoji === "❌") {
-                            message.channel.send(`Oh? No problem ${message.author}, thanks anyway!`);
-                        } else {
-                            message.channel.send(`I dont understand ${emoji}...`);
-                        }
-                    }
-                });
-            });
-        }
-
-        //Audio commands
-        else if (command === "join") {
-            if (message.member.voice.channel) {
-                message.member.voice.channel.join();
-            } else {
-                message.channel.send("Oooh, I can't join you in voice, or I don't have permission");
-            }
-        }
-        else if (command === "leave") {
-            if (!message.guild.me.voice.channel) return message.channel.send("Eaaah, I'm not in a voice channel");
-            message.guild.me.voice.channel.leave();
-        }
-
-        //Picture Profile
-        else if (command === "pp") {
-            if (!message.mentions.users.size) {
-                return message.channel.send(`Hiaaaaaa, here is your profile picture ${message.author}:\n${message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 256 })}`);
-            }
-        }
-        //Shutdown command
-        else if (command === "shutdown") {
-            if (!message.author.id === "650432748275892253") {
-                message.channel.send("Oh... I'm sorry but this command doesn't exist");
-            } else {
-                message.channel.send("Oh, fine, I'll rest").then(() => {
-                    console.log("Paimon was stoped\n");
-                    client.destroy();
-                });
-            }
-        }
-        // Mini gestion d'erreur
-        else {
+        if (!client.commands.has(command)) {
             message.channel.send("Oh... I'm sorry but this command doesn't exist");
+            return;
+        }
+        try {
+            client.commands.get(command).execute(client, message, args);
+        } catch (error) {
+            console.error(error);
+            message.reply('There was an error trying to execute that command!');
         }
     }
-})
+});
