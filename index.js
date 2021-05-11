@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const config = require('./config.json');
-const fs = require('fs');
-require('dotenv').config();
+const config = require("./config.json");
+const fs = require("fs");
+require("dotenv").config();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 client.commands = new Discord.Collection();
 
 for (const file of commandFiles) {
@@ -14,12 +14,12 @@ for (const file of commandFiles) {
 
 client.login(process.env.TOKEN);
 
-client.on('ready', () => {
-    console.log('\nPaimon was started!');
+client.on("ready", () => {
+    console.log("\nPaimon was started!");
     console.log("\n---------------------------------\n");
 });
 
-client.on('message', message => {
+client.on("message", message => {
     if (message.content.startsWith(config.prefix)) {
         const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
@@ -39,7 +39,7 @@ client.on('message', message => {
             client.commands.get(command).execute(client, message, args);
         } catch (error) {
             console.error(error);
-            message.reply('There was an error trying to execute that command!');
+            message.reply("There was an error trying to execute that command!");
         }
     }
 });
