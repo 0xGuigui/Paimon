@@ -24,14 +24,6 @@
 * Github: [@guilhem-jehanno](https://github.com/guilhem-jehanno)
 * LinkedIn: [@guilhemjeh](https://linkedin.com/in/guilhemjeh)
 
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/guilhem-jehanno/paimon/issues). 
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
 ## 📝 License
 
 Copyright © 2021 [Guilhem Jéhanno](https://github.com/guilhem-jehanno).<br />
