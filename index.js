@@ -27,7 +27,7 @@ client.on('message', message => {
         //ping
         if (command === "ping") {
             const time = message.createdTimestamp - Date.now();
-            message.channel.send(`🏓 Pong (${time})`);
+            message.channel.send(`🏓 Pong (${time})ms`);
         }
 
         //Serveur infos
@@ -80,6 +80,13 @@ client.on('message', message => {
         else if (command === "leave") {
             if(!message.guild.me.voice.channel) return message.channel.send("Eaaah, I'm not in a voice channel");
             message.guild.me.voice.channel.leave();
+        }
+
+        //Picture Profile
+        else if (command === "pp") {
+            if (!message.mentions.users.size) {
+                return message.channel.send(`Hiaaaaaa, here is your profile picture ${message.author}:\n${message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 256})}`);
+            }
         }
         // Mini gestion d'erreur
         else {
