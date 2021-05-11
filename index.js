@@ -68,6 +68,19 @@ client.on('message', message => {
                 });
             });
         }
+
+        //Audio commands
+        else if (command === "join") {
+            if (message.member.voice.channel) {
+                message.member.voice.channel.join();
+            } else {
+                message.channel.send("Oooh, I can't join you in voice, or I don't have permission");
+            }
+        }
+        else if (command === "leave") {
+            if(!message.guild.me.voice.channel) return message.channel.send("Eaaah, I'm not in a voice channel");
+            message.guild.me.voice.channel.leave();
+        }
         // Mini gestion d'erreur
         else {
             message.channel.send("Oh... I'm sorry but this command doesn't exist");

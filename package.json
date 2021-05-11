@@ -23,8 +23,12 @@
   },
   "homepage": "https://github.com/guilhem-jehanno/paimon#readme",
   "dependencies": {
+    "bufferutil": "^4.0.3",
     "discord.js": "^12.5.3",
-    "dotenv": "^9.0.1"
+    "dotenv": "^9.0.1",
+    "erlpack": "github:discord/erlpack",
+    "utf-8-validate": "^5.0.5",
+    "zlib-sync": "^0.1.7"
   },
   "devDependencies": {
     "eslint": "^7.26.0"
