@@ -23,7 +23,6 @@ client.on("message", message => {
     if (message.content.startsWith(config.prefix)) {
         const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
-        const args_space = args.join(" ");
         if (message.author.bot) return;
         console.log(`The message is: ${message.content}`);
         console.log(`Sent by: ${message.author.username}`);
