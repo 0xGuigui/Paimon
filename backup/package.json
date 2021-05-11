@@ -1,0 +1,36 @@
+{
+  "name": "paimon",
+  "version": "1.0.0",
+  "description": "Imparare Discord JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilhem-jehanno/paimon.git"
+  },
+  "keywords": [
+    "Discord",
+    "Bot",
+    "DiscordJS",
+    "Paimon"
+  ],
+  "author": "Nysioko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guilhem-jehanno/paimon/issues"
+  },
+  "homepage": "https://github.com/guilhem-jehanno/paimon#readme",
+  "dependencies": {
+    "bufferutil": "^4.0.3",
+    "discord.js": "^12.5.3",
+    "dotenv": "^9.0.1",
+    "erlpack": "github:discord/erlpack",
+    "utf-8-validate": "^5.0.5",
+    "zlib-sync": "^0.1.7"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0"
+  }
+}
