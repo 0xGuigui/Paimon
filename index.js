@@ -17,15 +17,17 @@ client.on('message', message => {
     if (message.author.bot) return;
 
     // Suivi
-    console.log("The message is:",message.content);
-    console.log("Sent by:", message.author.username);
-    console.log("In the channel:",message.channel.name);
+    console.log(`The message is: ${message.content}`);
+    console.log(`Sent by: ${message.author.username}`);
+    console.log(`In the channel: ${message.channel.name}`);
+    console.log(`On the server: ${message.guild.name}`);
     console.log("\n---------------------------------\n");
 
     if (message.content.startsWith(`${config.prefix}`)) {
         //ping
         if (command === "ping") {
-            message.channel.send('Pong.');
+            const time = message.createdTimestamp - Date.now();
+            message.channel.send(`🏓 Pong (${time})`);
         }
 
         //Serveur infos
