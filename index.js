@@ -6,13 +6,13 @@ require('dotenv').config();
 client.login(process.env.TOKEN);
 
 client.on('ready', () => {
-	console.log('\nPaimon was started!');
+    console.log('\nPaimon was started!');
     console.log("\n---------------------------------\n");
 });
 
 client.on('message', message => {
     const args = message.content.slice(`${config.prefix.length}`).trim().split(/ +/g);
-	const command = args.shift().toLowerCase();
+    const command = args.shift().toLowerCase();
     const args_space = args.join(" ");
     if (message.author.bot) return;
 
@@ -78,14 +78,25 @@ client.on('message', message => {
             }
         }
         else if (command === "leave") {
-            if(!message.guild.me.voice.channel) return message.channel.send("Eaaah, I'm not in a voice channel");
+            if (!message.guild.me.voice.channel) return message.channel.send("Eaaah, I'm not in a voice channel");
             message.guild.me.voice.channel.leave();
         }
 
         //Picture Profile
         else if (command === "pp") {
             if (!message.mentions.users.size) {
-                return message.channel.send(`Hiaaaaaa, here is your profile picture ${message.author}:\n${message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 256})}`);
+                return message.channel.send(`Hiaaaaaa, here is your profile picture ${message.author}:\n${message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 256 })}`);
+            }
+        }
+        //Shutdown command
+        else if (command === "shutdown") {
+            if (!message.author.id === "650432748275892253") {
+                message.channel.send("Oh... I'm sorry but this command doesn't exist");
+            } else {
+                message.channel.send("Oh, fine, I'll rest").then(() => {
+                    console.log("Paimon was stoped\n");
+                    client.destroy();
+                });
             }
         }
         // Mini gestion d'erreur
