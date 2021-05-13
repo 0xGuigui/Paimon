@@ -4,7 +4,7 @@
   <a href="https://github.com/guilhem-jehanno/paimon/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  <a href="https://github.com/guilhem-jehanno/paimon/blob/master/LICENSE" target="_blank">
+  <a href="https://github.com/guilhem-jehanno/Paimon/blob/main/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/guilhem-jehanno/Paimon" />
   </a>
   <a href="https://twitter.com/nysioko" target="_blank">
@@ -23,14 +23,6 @@
 * Twitter: [@nysioko](https://twitter.com/nysioko)
 * Github: [@guilhem-jehanno](https://github.com/guilhem-jehanno)
 * LinkedIn: [@guilhemjeh](https://linkedin.com/in/guilhemjeh)
-
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/guilhem-jehanno/paimon/issues). 
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
