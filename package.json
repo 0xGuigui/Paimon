@@ -25,7 +25,7 @@
   "dependencies": {
     "bufferutil": "^4.0.3",
     "discord.js": "^12.5.3",
-    "dotenv": "^9.0.1",
+    "dotenv": "^9.0.2",
     "erlpack": "github:discord/erlpack",
     "utf-8-validate": "^5.0.5",
     "zlib-sync": "^0.1.7"
