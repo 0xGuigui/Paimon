@@ -17,6 +17,9 @@ client.login(process.env.TOKEN);
 client.on("ready", () => {
     console.log("\nPaimon was started!");
     console.log("\n---------------------------------\n");
+    client.user.setActivity("players on Genshin Impact", {
+        type: "WATCHING",
+    });
 });
 
 client.on("message", message => {
