@@ -10,6 +10,9 @@ module.exports = {
             message.delete({setTimeout: 1});
             return;
         }
+        else if (command.guildOnly && message.channel.type === 'dm') {
+                return message.reply('I can\'t execute that command inside DMs!');
+        }
         else {
             message.delete({setTimeout: 1});
             message.channel.send(`${say}`);
