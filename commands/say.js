@@ -1,21 +1,23 @@
 module.exports = {
-	name: "say",
-	description: "say",
-    execute(client, message, args) {
+    name: "say",
+    description: "say",
+    execute(client, message, args, command) {
         const say = args.join(" ");
-        if (message.author.id != "650432748275892253") {
-            message.channel.send("Oh... I'm sorry but this command doesn't exist");
-        }
-        else if (!args.length) {
-            message.delete({setTimeout: 1});
-            return;
-        }
-        else if (command.guildOnly && message.channel.type === 'dm') {
-                return message.reply('I can\'t execute that command inside DMs!');
-        }
-        else {
-            message.delete({setTimeout: 1});
-            message.channel.send(`${say}`);
+        try {
+            if (message.author.id != "650432748275892253") {
+                message.channel.send("Oh... I'm sorry but this command doesn't exist");
+            } else if (!args.length) {
+                message.delete({ setTimeout: 1 });
+                return;
+            } else if (message.guild === null) {
+                return message.reply("Ohoh, I can't do that in private messages...");
+            } else {
+                message.delete({ setTimeout: 1 });
+                message.channel.send(`${say}`);
+            }
+        } catch (error) {
+            console.error(error);
+            message.channel.send("Ohoh, I couldn't execute the command...");
         }
     }
 }

@@ -1,7 +1,7 @@
 module.exports = {
     name: "suggestion",
 	description: "suggestion",
-    execute(client, message, args) {
+    execute(client, message, args, command) {
         const suggestion = args.join(" ");
         if (!args.length) {
             return message.channel.send(`Eeeeh, you forgot to put the request ${message.author}!`);

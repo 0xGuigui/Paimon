@@ -1,7 +1,7 @@
 module.exports = {
     name: "join",
     description: "join",
-    execute(client, message, args) {
+    execute(client, message, args, command) {
         if (message.member.voice.channel) {
             message.member.voice.channel.join();
         } else {

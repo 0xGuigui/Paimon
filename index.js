@@ -26,19 +26,19 @@ client.on("message", message => {
         if (message.author.bot) return;
         console.log(`The message is: ${message.content}`);
         console.log(`Sent by: ${message.author.username}`);
-        console.log(`In the channel: ${message.channel.name}`);
-        console.log(`On the server: ${message.guild.name}`);
-        console.log("\n---------------------------------\n");
+        if (message.guild === null) {
+            console.log(`In PM`);
+            console.log("\n---------------------------------\n");
+        } else {
+            console.log(`In the channel: ${message.channel.name}`);
+            console.log(`On the server: ${message.guild.name}`);
+            console.log("\n---------------------------------\n");
+        }
 
         if (!client.commands.has(command)) {
             message.channel.send("Oh... I'm sorry but this command doesn't exist");
             return;
         }
-        try {
-            client.commands.get(command).execute(client, message, args);
-        } catch (error) {
-            console.error(error);
-            message.reply("There was an error trying to execute that command!");
-        }
+            client.commands.get(command).execute(client, message, args, command);
     }
 });

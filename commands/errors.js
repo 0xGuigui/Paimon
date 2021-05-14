@@ -1,7 +1,7 @@
 module.exports = {
-	name: "help",
-	description: "help",
+    name: "error",
+    description: "error",
     execute(client, message, args, command) {
         return;
     }
-};
+}
