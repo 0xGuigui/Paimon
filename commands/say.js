@@ -6,6 +6,10 @@ module.exports = {
         if (message.author.id != "650432748275892253") {
             message.channel.send("Oh... I'm sorry but this command doesn't exist");
         }
+        else if (!args.length) {
+            message.delete({setTimeout: 1});
+            return;
+        }
         else {
             message.delete({setTimeout: 1});
             message.channel.send(`${say}`);
