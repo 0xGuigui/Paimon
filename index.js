@@ -44,4 +44,4 @@ client.on("message", message => {
         }
             client.commands.get(command).execute(client, message, args, command);
     }
-});
+;});
