@@ -20,7 +20,6 @@
 
 👤 **Guilhem Jéhanno**
 
-* Twitter: [@nysioko](https://twitter.com/nysioko)
 * Github: [@guilhem-jehanno](https://github.com/guilhem-jehanno)
 * LinkedIn: [@guilhemjeh](https://linkedin.com/in/guilhemjeh)
 
