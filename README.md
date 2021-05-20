@@ -7,9 +7,6 @@
   <a href="https://github.com/guilhem-jehanno/Paimon/blob/main/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/guilhem-jehanno/Paimon" />
   </a>
-  <a href="https://twitter.com/nysioko" target="_blank">
-    <img alt="Twitter: nysioko" src="https://img.shields.io/twitter/follow/nysioko.svg?style=social" />
-  </a>
 </p>
 
 > Imparare Discord JS
@@ -20,7 +17,6 @@
 
 👤 **Guilhem Jéhanno**
 
-* Twitter: [@nysioko](https://twitter.com/nysioko)
 * Github: [@guilhem-jehanno](https://github.com/guilhem-jehanno)
 * LinkedIn: [@guilhemjeh](https://linkedin.com/in/guilhemjeh)
 
