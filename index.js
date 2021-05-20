@@ -46,6 +46,11 @@ client.on("message", message => {
             message.channel.send("Oh... I'm sorry but this command doesn't exist");
             return;
         }
+        try {
             client.commands.get(command).execute(client, message, args, command);
+        } catch(error) {
+            console.error(error);
+            message.channel.send("Error");
+        }
     }
 ;});

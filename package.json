@@ -28,6 +28,8 @@
     "dotenv": "^9.0.2",
     "erlpack": "github:discord/erlpack",
     "utf-8-validate": "^5.0.5",
+    "ytdl": "^1.4.1",
+    "ytdl-core": "^4.8.0",
     "zlib-sync": "^0.1.7"
   },
   "devDependencies": {
