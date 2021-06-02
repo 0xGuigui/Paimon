@@ -1,2 +1,0 @@
-# Paimon
-Imparare Discord JS
