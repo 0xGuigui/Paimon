@@ -5,7 +5,7 @@ module.exports = {
         const say = args.join(" ");
         try {
             if (message.author.id != "650432748275892253") {
-                message.channel.send("Oh... I'm sorry but this command doesn't exist");
+                message.channel.send("Not implemented");
             } else if (!args.length) {
                 message.delete({ setTimeout: 1 });
                 return;
