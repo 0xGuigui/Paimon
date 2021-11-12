@@ -8,7 +8,11 @@ module.exports = {
         } else if (!args.length) {
             message.delete({ setTimeout: 1 });
             return;
-        } else if (message.guild === null && message.author.id != "650432748275892253") {
+        } else if (message.guild === null && message.author.id === "650432748275892253") {
+            message.channel.send(`${say}`);
+            console.log("Done\n");
+            return;
+        } else if (message.guild === null) {
             return message.reply("Ohoh, I can't do that in private messages...");
         } else {
             message.delete({ setTimeout: 1 });
