@@ -7,7 +7,7 @@ module.exports = {
                 message.channel.send("Oh... I'm sorry but this command doesn't exist");
             } else {
                 message.channel.send("Oh, fine, I'll rest").then(() => {
-                    console.log("Paimon was stoped");
+                    console.log("Ganyu was stoped");
                     console.log("\n---------------------------------\n");
                     client.destroy();
                 });

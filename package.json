@@ -1,5 +1,5 @@
 {
-  "name": "paimon",
+  "name": "Ganyu",
   "version": "1.0.0",
   "description": "Imparare Discord JS",
   "main": "index.js",
@@ -8,20 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guilhem-jehanno/paimon.git"
+    "url": "git+https://github.com/guilhem-jehanno/Ganyu.git"
   },
   "keywords": [
     "Discord",
     "Bot",
     "DiscordJS",
-    "Paimon"
+    "Ganyu"
   ],
   "author": "Nysioko",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/guilhem-jehanno/paimon/issues"
+    "url": "https://github.com/guilhem-jehanno/Ganyu/issues"
   },
-  "homepage": "https://github.com/guilhem-jehanno/paimon#readme",
+  "homepage": "https://github.com/guilhem-jehanno/Ganyu#readme",
   "dependencies": {
     "bufferutil": "^4.0.3",
     "discord.js": "^12.5.3",

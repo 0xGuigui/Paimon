@@ -19,9 +19,9 @@ for (const folder of commandFolders) {
 client.login(process.env.TOKEN);
 
 client.on("ready", () => {
-    console.log("\nPaimon was started!");
+    console.log("\nGanyu was started!");
     console.log("\n---------------------------------\n");
-    client.user.setActivity("players on Genshin Impact", {
+    client.user.setActivity("you", {
         type: "WATCHING",
     });
 });
