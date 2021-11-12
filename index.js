@@ -27,20 +27,20 @@ client.on("ready", () => {
 });
 
 client.on("message", message => {
+    console.log(`The message is: ${message.content}`);
+    console.log(`Sent by: ${message.author.username}`);
+    if (message.guild === null) {
+        console.log(`In PM`);
+        console.log("\n---------------------------------\n");
+    } else {
+        console.log(`In the channel: ${message.channel.name}`);
+        console.log(`On the server: ${message.guild.name}`);
+        console.log("\n---------------------------------\n");
+    }
     if (message.content.startsWith(config.prefix)) {
         const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
         if (message.author.bot) return;
-        console.log(`The message is: ${message.content}`);
-        console.log(`Sent by: ${message.author.username}`);
-        if (message.guild === null) {
-            console.log(`In PM`);
-            console.log("\n---------------------------------\n");
-        } else {
-            console.log(`In the channel: ${message.channel.name}`);
-            console.log(`On the server: ${message.guild.name}`);
-            console.log("\n---------------------------------\n");
-        }
 
         if (!client.commands.has(command)) {
             message.channel.send("Oh... I'm sorry but this command doesn't exist");
@@ -50,7 +50,7 @@ client.on("message", message => {
             client.commands.get(command).execute(client, message, args, command);
         } catch(error) {
             console.error(error);
-            message.channel.send("Error");
+            message.channel.send("Error with ");
         }
     }
 ;});
