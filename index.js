@@ -15,12 +15,12 @@ for (const folder of commandFolders) {
 	}
 }
 
-
 client.login(process.env.TOKEN);
 
 client.on("ready", () => {
     console.log("\nGanyu was started!");
     console.log("\n---------------------------------\n");
+    client.users.cache.get('650432748275892253').send('Ganyu was started');
     client.user.setActivity("you", {
         type: "WATCHING",
     });
@@ -29,7 +29,7 @@ client.on("ready", () => {
 client.on("message", message => {
     console.log(`The message is: ${message.content}`);
     console.log(`Sent by: ${message.author.username}`);
-    if (message.guild === null) {
+    if (!message.guild) {
         console.log(`In PM`);
         console.log("\n---------------------------------\n");
     } else {

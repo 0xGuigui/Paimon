@@ -13,6 +13,7 @@ module.exports = {
             console.log("Ganyu was started")
             console.log("\n---------------------------------\n");
             message.channel.send("I'm back");
+            client.users.cache.get('650432748275892253').send('Ganyu was restarted');
         };
     }
 }

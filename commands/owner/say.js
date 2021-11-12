@@ -12,7 +12,7 @@ module.exports = {
             message.channel.send(`${say}`);
             console.log("Done\n");
             return;
-        } else if (message.guild === null) {
+        } else if (!message.guild) {
             return message.reply("Ohoh, I can't do that in private messages...");
         } else {
             message.delete({ setTimeout: 1 });
