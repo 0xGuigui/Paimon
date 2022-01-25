@@ -1,2 +1,2 @@
-# Ganyu
+# Paimon
 Imparare Discord JS

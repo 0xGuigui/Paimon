@@ -6,14 +6,14 @@ module.exports = {
             message.channel.send("Not implemented");
         } else {
             message.channel.send("Okok, I'm coming back");
-            console.log("Ganyu was stoped");
+            console.log("Paimon was stoped");
             console.log("\n---------------------------------\n");
             client.destroy();
             client.login(process.env.TOKEN);
-            console.log("Ganyu was started")
+            console.log("Paimon was started")
             console.log("\n---------------------------------\n");
             message.channel.send("I'm back");
-            client.users.cache.get('650432748275892253').send('Ganyu was restarted');
+            client.users.cache.get('650432748275892253').send('Paimon was restarted');
         };
     }
 }

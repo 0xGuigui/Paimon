@@ -18,9 +18,9 @@ for (const folder of commandFolders) {
 client.login(process.env.TOKEN);
 
 client.on("ready", () => {
-    console.log("\nGanyu was started!");
+    console.log("\nPaimon was started!");
     console.log("\n---------------------------------\n");
-    client.users.cache.get('650432748275892253').send('Ganyu was started');
+    client.users.cache.get('650432748275892253').send('Paimon was started');
     client.user.setActivity("you", {
         type: "WATCHING",
     });
